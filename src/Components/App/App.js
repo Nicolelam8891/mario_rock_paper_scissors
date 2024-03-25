@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../Header/Header';
 import PlayerPeach from '../PlayerPeach/PlayerPeach';
 import PlayerBowser from '../PlayerBowser/PlayerBowser';
+import GameBoard from '../GameBoard/GameBoard';
 
 function App() {
   const backgroundImage = {
@@ -16,7 +17,8 @@ function App() {
         <PlayerPeach /> 
       </div>
       <div className='flex-1 justify-centerflex main-content'>
-        <Header />
+        <Header /> 
+        <GameBoard />
       </div>
       <div className='flex right-sidebar'>
         <PlayerBowser />
