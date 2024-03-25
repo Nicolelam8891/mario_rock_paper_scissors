@@ -1,6 +1,9 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Header from '../Header/Header';
+import PlayerPeach from '../PlayerPeach/PlayerPeach';
+import PlayerBowser from '../PlayerBowser/PlayerBowser';
+import GameBoard from '../GameBoard/GameBoard';
 
 function App() {
   const backgroundImage = {
@@ -9,9 +12,16 @@ function App() {
   }
 
   return (
-    <main className="App bg-cover bg-no-repeat bg-center relative m-0 h-screen" style={backgroundImage}>
-      <div className='main-content'>
-        <Header />
+    <main className="App flex justify-space-evenly bg-cover bg-no-repeat bg-center relative m-0 h-screen" style={backgroundImage}>
+      <div className='flex h-full left-sidebar'>
+        <PlayerPeach /> 
+      </div>
+      <div className='flex-1 justify-centerflex main-content'>
+        <Header /> 
+        <GameBoard />
+      </div>
+      <div className='flex right-sidebar'>
+        <PlayerBowser />
       </div>
     </main>
   );
