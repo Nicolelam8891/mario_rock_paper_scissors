@@ -12,13 +12,13 @@ function App() {
 
   return (
     <main className="App flex justify-space-evenly bg-cover bg-no-repeat bg-center relative m-0 h-screen" style={backgroundImage}>
-      <div className=>
+      <div className='flex h-full left-sidebar'>
         <PlayerPeach /> 
       </div>
-      <div className='>
+      <div className='flex-1 justify-centerflex main-content'>
         <Header />
       </div>
-      <div className=''>
+      <div className='flex right-sidebar'>
         <PlayerBowser />
       </div>
     </main>
