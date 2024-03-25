@@ -16,7 +16,7 @@ function App() {
       <div className='flex h-full left-sidebar'>
         <PlayerPeach /> 
       </div>
-      <div className='flex-1 justify-centerflex main-content'>
+      <div className='flex-1 flex flex-col justify-center main-content'>
         <Header /> 
         <GameBoard />
       </div>
