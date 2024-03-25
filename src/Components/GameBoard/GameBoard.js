@@ -16,7 +16,18 @@ const GameBoard = () => {
           </div>
         </button>
           
-        <button className='bg-blue-100 p-10 difficult'>Difficult Game</button>
+        <button className='bg-blue-100 p-10 difficult'>
+          <div className='text-left'>
+              <p className='text-center'>Classic Game:</p>
+              <img src='/difficultGame.png' className='w-40' />
+              <p className='m1-4 text-center'>Bomb beats Shell & Daisy Fireball</p>
+              <p className='m1-4 text-center'>Shell beats Star & Coin</p>
+              <p className='m1-4 text-center'>Star beats Bomb & Daisy Fireball</p>
+              <p className='m1-4 text-center'>Coin beats Shell and Star</p>
+              <p className='m1-4 text-center'>Daisy Fireball beats Coin and Bomb</p>
+            </div>
+        
+        </button>
       </div>
     </main>
   )
