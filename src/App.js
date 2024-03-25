@@ -6,7 +6,7 @@ import Header from './Header/Header';
 function App() {
   return (
     <main className="App">
-      <div className='bg-mushroom-palace bg-cover bg-no-repeat bg-inherit min-h-screen'>
+      <div className='main-content'>
         <Header />
       </div>
     </main>
