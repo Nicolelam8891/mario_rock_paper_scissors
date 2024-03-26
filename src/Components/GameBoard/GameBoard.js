@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ClassicMode from '../ClassicGame/ClassicMode';
-import ClassicIcons from '../ClassicGame/ClassicMode';
+import ClassicIcons from '../GameModeIcons/ClassicIcons';
+import DifficultIcons from '../GameModeIcons/DifficultIcons';
+
 
 const GameBoard = () => {
   const [gameMode, setGameMode] = useState(null);
@@ -8,12 +9,10 @@ const GameBoard = () => {
     const renderGameMode = () => {
       switch (gameMode) {
         case 'classic': 
-          return <ClassicMode />;
+          return <ClassicIcons />;
         case 'difficult':
-          // Return your DifficultMode component or JSX here
-          break;
+          return <DifficultIcons />
         default:
-          // The default case should return null or your initial state JSX
           return null;
       }
     };
@@ -50,7 +49,7 @@ const GameBoard = () => {
           </div>
         </button>
         
-        <button className='bg-blue-100 p-10 bg-opacity-50'>
+        <button onClick={() => setGameMode('difficult')}className='bg-blue-100 p-10 bg-opacity-50'>
           <div className='text-left'>
               <p className='text-center font-bold'>Difficult Mode:</p>
               <img src='/difficultGame.png' className='w-40' />
