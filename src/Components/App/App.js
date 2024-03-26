@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import PlayerPeach from '../PlayerPeach/PlayerPeach';
 import PlayerBowser from '../PlayerBowser/PlayerBowser';
 import GameBoard from '../GameBoard/GameBoard';
+import ClassicIcons from '../ClassicGame/ClassicMode';
 
 function App() {
   const backgroundImage = {
@@ -19,6 +20,7 @@ function App() {
       <div className='flex-1 flex flex-col justify-center main-content'>
         <Header /> 
         <GameBoard />
+  
       </div>
       <div className='flex right-sidebar'>
         <PlayerBowser />

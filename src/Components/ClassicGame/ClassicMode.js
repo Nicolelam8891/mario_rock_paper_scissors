@@ -1,17 +1,16 @@
 import React from 'react';
-
 import bombIcon from '../../assets/bomb.png'
 import shellIcon from '../../assets/shell.png'
 import starIcon from '../../assets/star.png'
 
-const ClassicMode= ({ onSelection }) => {
+const ClassicIcons = () => {
   return (
     <div className='icon-container flex justify-center items-center space-x-4'>
-      <img src={bombIcon} alt="Bomb icon" onClick={() => onSelection('bomb')} />
-      <img src={shellIcon} alt="Shell icon" onClick={() => onSelection('shell')} />
-      <img src={starIcon} alt="Star icon" onClick={() => onSelection('star')} />
+      <img src={bombIcon} alt="Bomb icon" />
+      <img src={shellIcon} alt="Shell icon" />
+      <img src={starIcon} alt="Star icon" />
     </div>
   )
 }
 
-export default ClassicMode
+export default ClassicIcons
