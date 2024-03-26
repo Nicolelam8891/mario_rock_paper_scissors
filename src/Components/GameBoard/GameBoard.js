@@ -5,8 +5,17 @@ import DifficultIcons from '../GameModeIcons/DifficultIcons';
 
 const GameBoard = () => {
   const [gameMode, setGameMode] = useState(null);
+  const [gameStarted, setGameStarted] = useState(false);
+
+    const startGame = (gameMode) => {
+      setGameMode(gameMode);
+      setGameStarted(true);
+    }
 
     const renderGameMode = () => {
+      if (!gameStarted) {
+        return null; //when game hasn't started, don't render icons
+      }
       switch (gameMode) {
         case 'classic': 
           return <ClassicIcons />;
@@ -38,8 +47,9 @@ const GameBoard = () => {
 
   return (
     <main className='flex justify-center items-center h-screen'>
+      {!gameStarted && (
       <div className='flex flex-col items-center justify-center p-4 h-full'>
-        <button onClick={() => setGameMode('classic')} className='bg-blue-100 p-10 border-2 classic bg-opacity-50'>
+        <button onClick={() => startGame('classic')} className='bg-blue-100 p-10 border-2 classic bg-opacity-50'>
           <div className='text-left'>
             <p className='text-center font-bold'>Classic Mode:</p>
             <img src='/classicGame.png' className='w-40' />
@@ -49,7 +59,7 @@ const GameBoard = () => {
           </div>
         </button>
         
-        <button onClick={() => setGameMode('difficult')}className='bg-blue-100 p-10 bg-opacity-50'>
+        <button onClick={() => startGame('difficult')}className='bg-blue-100 p-10 bg-opacity-50'>
           <div className='text-left'>
               <p className='text-center font-bold'>Difficult Mode:</p>
               <img src='/difficultGame.png' className='w-40' />
@@ -59,9 +69,10 @@ const GameBoard = () => {
               <p className='m1-4 text-center font-bold'>Coin beats Shell and Star</p>
               <p className='m1-4 text-center font-bold'>Daisy Fireball beats Coin and Bomb</p>
             </div>
-          {renderGameMode()}
         </button>
       </div>
+      )}
+      {renderGameMode()}
     </main>
   )
 }
