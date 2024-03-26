@@ -1,6 +1,34 @@
 import './GameBoard.css'
+import React, { useState, useEffect } from 'react';
+import ClassicMode from '../ClassicGame/ClassicMode';
+
 
 const GameBoard = () => {
+
+  const GameBoard = () => {
+    const [gameMode, setGameMode] = useState(null);
+
+    const renderGameMode  = () => {
+      switch (gameMode) {
+        case 'classic': 
+          return <ClassicMode onSelection={handleIconSelection} />;
+        case 'difficult':
+     
+        default:
+          return (
+            <div className='flex flex-col items-center justify-center p-4 h-full'>
+              <button className='bg-blue-100 border-2 classic' onClick={() => setGameMode('classic')}>Classic Mode</button>
+              <button className='bg-blue-100 border-2 difficult' onClick={() => setGameMode('difficult')}>Difficult Mode</button>
+              </div>  
+          )
+      }
+    }
+    return (
+      <main className='flex justify-center items-center h-screen'>
+        {renderGameMode()}
+      </main>
+    )
+  }
 
   const determineWinner = (playerChoice, computerChoice) => {
     const rules = {
