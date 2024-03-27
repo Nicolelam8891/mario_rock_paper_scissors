@@ -8,7 +8,7 @@ import ClassicIcons from '../GameModeIcons/ClassicIcons';
 
 function App() {
   const backgroundImage = {
-    backgroundImage: `url('/mushroompalace.png')`, 
+    backgroundImage: "url('/mushroompalace.png')", 
     backgroundSize: 'cover',
   }
 
