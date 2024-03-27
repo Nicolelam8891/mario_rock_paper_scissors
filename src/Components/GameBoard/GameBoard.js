@@ -25,24 +25,24 @@ const GameBoard = () => {
       }
     };
 
-  // const determineWinner = (playerChoice, computerChoice) => {
-  //   const rules = {
-  //     bomb: ['shell', 'daisy fireball'], 
-  //     shell: ['star', 'coin'], 
-  //     star: ['bomb', 'daisy fireball'],
-  //     coin: ['shell', 'star'],
-  //     daisyFireball: ['coin', 'bomb']
-  //   }
-  //   if (playerChoice === computerChoice) {
-  //     return `It's a draw!`
-  //   }
+    const determineWinner = (playerChoice, computerChoice) => {
+      const rules = {
+        bomb: ['shell', 'daisy fireball'],
+        shell: ['shell', 'star'],
+        star: ['star', 'bomb'],
+        coin: ['shell', 'star'],
+        daisyFireball: ['coin', 'bomb']
+      }
+      if (playerChoice === computerChoice) {
+        return `It's a draw!`
+      }
+      if (rules[playerChoice].includes(computerChoice)) {
+        return `Good work! Peach wins!`
+      } else {
+        return `Oh no! Bowser wins!`
+      }
+    }
 
-  //   if (rules[playerChoice].includes(computerChoice)) {
-  //     return `Good work! Peach wins!`
-  //   } else {
-  //     return `Bowser wins!`;
-  //   }
-  // }
 
   return (
     <main className='flex justify-center items-center h-screen'>
