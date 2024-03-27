@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ClassicIcons from '../Icons/ClassicIcons';
-import DifficultIcons from '../Icons/DifficultIcons';
 import Icons from '../Icons/Icons';
 
 
