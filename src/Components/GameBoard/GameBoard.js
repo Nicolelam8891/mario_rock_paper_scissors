@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ClassicIcons from '../GameModeIcons/ClassicIcons';
-import DifficultIcons from '../GameModeIcons/DifficultIcons';
+import ClassicIcons from '../Icons/ClassicIcons';
+import DifficultIcons from '../Icons/DifficultIcons';
+import Icons from '../Icons/Icons';
 
 
 const GameBoard = () => {
@@ -18,9 +19,9 @@ const GameBoard = () => {
       }
       switch (gameMode) {
         case 'classic': 
-          return <ClassicIcons />;
+          return <Icons mode={'classic'} />;
         case 'difficult':
-          return <DifficultIcons />
+          return <Icons mode={'difficult'} />
         default:
           return null;
       }
@@ -58,7 +59,7 @@ const GameBoard = () => {
             <p className='m1-4 text-center font-bold'>Star beats Bomb</p>
           </div>
         </button>
-        
+        //user event is the onClick, startGame is the event handler
         <button onClick={() => startGame('difficult')}className='bg-blue-100 p-10 bg-opacity-50'>
           <div className='text-left'>
               <p className='text-center font-bold'>Difficult Mode:</p>
