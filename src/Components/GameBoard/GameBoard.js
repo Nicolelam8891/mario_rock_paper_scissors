@@ -5,9 +5,14 @@ import Icons from '../Icons/Icons';
 const GameBoard = () => {
   const [gameMode, setGameMode] = useState(null);
   const [gameStarted, setGameStarted] = useState(false);
+  const [playerChoice, setPlayerChoice] = useState(null);
+  const [computerChoice, setComputerChoice] = useState(null);
+  const [winner, setWinner] = useState('')
 
-    const startGame = (gameMode) => {
-      setGameMode(gameMode);
+  const choices = ['bomb', 'shell', 'star', 'coin', 'daisyFireball'];
+
+    const startGame = (mode) => {
+      setGameMode(mode);
       setGameStarted(true);
     }
 
@@ -24,6 +29,11 @@ const GameBoard = () => {
           return null;
       }
     };
+
+    const computerResult = () => {
+      const randomIndex = Math.floor(Math.random() * choices.length)
+      return choices[randomIndex];
+    }
 
     const determineWinner = (playerChoice, computerChoice) => {
       const rules = {
