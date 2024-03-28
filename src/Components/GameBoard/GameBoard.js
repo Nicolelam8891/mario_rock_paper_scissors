@@ -35,6 +35,10 @@ const GameBoard = () => {
       return choices[randomIndex];
     }
 
+    const playerIconChoice = (choice) => {
+   
+    }
+
     const determineWinner = (playerChoice, computerChoice) => {
       const rules = {
         bomb: ['shell', 'daisy fireball'],
