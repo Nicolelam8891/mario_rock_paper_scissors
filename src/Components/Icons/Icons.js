@@ -12,7 +12,7 @@ const Icons = ( props ) => {
     <> {
       mode === 'classic' ? 
     <div className='icon-container flex w-60 justify-center items-center space-x-20'>
-      <img src={bombIcon} alt="Bomb icon" />
+      <button onClick={()}><img src={bombIcon} alt="Bomb icon" /></button>
       <img src={shellIcon} alt="Shell icon" />
       <img src={starIcon} alt="Star icon" />
     </div>

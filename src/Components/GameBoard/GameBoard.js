@@ -36,7 +36,7 @@ const GameBoard = () => {
     }
 
     const playerIconChoice = (choice) => {
-   
+   //click on shell
     }
 
     const determineWinner = (playerChoice, computerChoice) => {
