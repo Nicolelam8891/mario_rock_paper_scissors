@@ -8,13 +8,18 @@ import daisyIcon from '../../assets/daisy.png'
 const Icons = ( props ) => {
   const {mode} = props
   console.log('mode', mode)
+
+  const handleIconClick = (iconName) => {
+    console.log(`${iconName} icon clicked!`)
+  }
+
   return (
-    <> {
-      mode === 'classic' ? 
-    <div className='icon-container flex w-60 justify-center items-center space-x-20'>
-      <button onClick={()}><img src={bombIcon} alt="Bomb icon" /></button>
-      <img src={shellIcon} alt="Shell icon" />
-      <img src={starIcon} alt="Star icon" />
+    <> 
+      { mode === 'classic' ? 
+    <div className='icon-container flex w-80 justify-center items-center space-x-20'>
+     <button type="button" onClick={() => handleIconClick('bombIcon')}><img src={bombIcon} alt="Bomb icon"/></button>
+     <button type="button" onClick={() => handleIconClick('shellIcon')}><img src={shellIcon} alt="Shell icon"/></button>
+     <button type="button" onClick={() => handleIconClick('starIcon')}><img src={starIcon} alt="Star icon" /></button>
     </div>
       : 
     <div className='icon-container flex w-60 justify-center items-center space-x-20'>
