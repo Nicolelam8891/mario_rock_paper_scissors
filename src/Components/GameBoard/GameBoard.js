@@ -30,17 +30,16 @@ const GameBoard = () => {
       }
     };
 
-    const computerResult = () => {
+    //needs to have a parameter of mode and take in the argument of classic or difficult
+    const computerResult = (mode='difficult') => {
       const randomIndex = Math.floor(Math.random() * choices.length)
       return choices[randomIndex];
     }
 
-    const playerIconChoice = (choice) => {
-   //click on shell
-    }
 
     const determineWinner = (playerChoice, computerChoice) => {
       const rules = {
+        //[winner: losers]
         bomb: ['shell', 'daisy fireball'],
         shell: ['shell', 'star'],
         star: ['star', 'bomb'],
@@ -50,9 +49,12 @@ const GameBoard = () => {
       if (playerChoice === computerChoice) {
         return `It's a draw!`
       }
+      //rules[playerChoice] (if it is coin) = ['shell', 'star']
       if (rules[playerChoice].includes(computerChoice)) {
+        //player wins
         return `Good work! Peach wins!`
       } else {
+        //CPU wins
         return `Oh no! Bowser wins!`
       }
     }
