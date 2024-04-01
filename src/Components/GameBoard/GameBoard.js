@@ -13,6 +13,7 @@ const GameBoard = () => {
   const classicChoice = ['bombIcon', 'shellIcon', 'starIcon']
 
     const startGame = (mode) => {
+      console.log('Game mode selected', mode)
       setGameMode(mode);
       setGameStarted(true);
     }
@@ -31,7 +32,6 @@ const GameBoard = () => {
       }
     };
 
-    //needs to have a parameter of mode and take in the argument of classic or difficult
     const computerResult = (mode) => {
       if (mode === 'classic') {
         const randomIndex = Math.floor(Math.random() * classicChoice.length)
@@ -66,6 +66,7 @@ const GameBoard = () => {
       if (playerChoice === computerChoice) {
         console.log(`It's a draw!`);
         setWinner('draw')
+      
       } else if (rules[playerChoice].includes(computerChoice)) {
         //rules[playerChoice] (if it is coin) = ['shell', 'star']
         console.log(`Good work! Peach wins!`);
@@ -91,7 +92,6 @@ const GameBoard = () => {
             <p className='m1-4 text-center font-bold'>Star beats Bomb</p>
           </div>
         </button>
-        //user event is the onClick, startGame is the event handler
         <button onClick={() => startGame('difficult')} className='bg-blue-100 p-10 bg-opacity-50'>
           <div className='text-left'>
               <p className='text-center font-bold'>Difficult Mode:</p>
