@@ -5,12 +5,13 @@ import starIcon from '../../assets/star.png'
 import coinIcon from '../../assets/coin.png'
 import daisyIcon from '../../assets/daisy.png'
 
-const Icons = ( props ) => {
-  const {mode} = props
-  console.log('mode', mode)
+
+const Icons = ( {mode, determineWinner} ) => {
 
   const handleIconClick = (iconName) => {
     console.log(`${iconName} icon clicked!`)
+    determineWinner(iconName)
+    
   }
 
   return (
