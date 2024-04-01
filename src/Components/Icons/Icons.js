@@ -16,18 +16,18 @@ const Icons = ( props ) => {
   return (
     <> 
       { mode === 'classic' ? 
-    <div className='icon-container flex w-80 justify-center items-center space-x-20'>
+    <div className='icon-container flex w-60 justify-center items-center space-x-20'>
      <button type="button" onClick={() => handleIconClick('bombIcon')}><img src={bombIcon} alt="Bomb icon"/></button>
      <button type="button" onClick={() => handleIconClick('shellIcon')}><img src={shellIcon} alt="Shell icon"/></button>
      <button type="button" onClick={() => handleIconClick('starIcon')}><img src={starIcon} alt="Star icon" /></button>
     </div>
       : 
-    <div className='icon-container flex w-60 justify-center items-center space-x-20'>
-      <img src={bombIcon} alt="Bomb icon" />
-      <img src={shellIcon} alt="Shell icon" />
-      <img src={starIcon} alt="Star icon" />
-      <img src={coinIcon} alt="Coin Icon" />
-      <img src={daisyIcon} alt="Daisy Icon" />
+    <div className='icon-container flex w-80 justify-center items-center space-x-20'>
+      <button type="button" onClick={() => handleIconClick('bombIcon')}><img src={bombIcon} alt="Bomb icon" /></button>
+      <button type="button" onClick={() => handleIconClick('shellIcon')}><img src={shellIcon} alt="Shell icon" /></button>
+      <button type="button" onClick={() => handleIconClick('starIcon')}><img src={starIcon} alt="Star icon" /></button>
+      <button type="button" onClick={() => handleIconClick('coinIcon')}><img src={coinIcon} alt="Coin Icon" /></button>
+      <button type="button" onClick={() => handleIconClick('daisyIcon')}><img src={daisyIcon} alt="Daisy Icon" /></button>
     </div>
     }
     </>
