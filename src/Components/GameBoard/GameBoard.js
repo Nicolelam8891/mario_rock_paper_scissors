@@ -12,6 +12,9 @@ const GameBoard = () => {
   const difficultChoice = ['bombIcon', 'shellIcon', 'starIcon', 'coinIcon', 'daisyFireballIcon'];
   const classicChoice = ['bombIcon', 'shellIcon', 'starIcon']
 
+  //want playerChoice state & computerChoice state to STAY
+  //hide other icons 
+
     const startGame = (mode) => {
       console.log('Game mode selected', mode)
       setGameMode(mode);
@@ -66,7 +69,6 @@ const GameBoard = () => {
       if (playerChoice === computerChoice) {
         console.log(`It's a draw!`);
         setWinner('draw')
-      
       } else if (rules[playerChoice].includes(computerChoice)) {
         //rules[playerChoice] (if it is coin) = ['shell', 'star']
         console.log(`Good work! Peach wins!`);
@@ -106,6 +108,15 @@ const GameBoard = () => {
       </div>
       )}
       {renderGameMode()}
+
+      {/* Winner Annoucement */}
+      {gameStarted && (
+        <div className='winner-announcement text-5xl font-bold text-blue-200 '>
+          {winner === 'draw' && <p>It's a draw!</p>}
+          {winner === 'player' && <p>Good work! Peach wins!</p>}
+          {winner === 'computer' && <p>Oh no! Bowser wins!</p>}
+        </div>
+      )}
     </main>
   )
 }
