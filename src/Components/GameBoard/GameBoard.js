@@ -94,7 +94,7 @@ const GameBoard = () => {
 
     const renderIcon = (choice) => {
       const IconImage = iconImages[choice];
-      return IconImage ? <img src={IconImage} alt={`${choice}`} /> : null;
+      return IconImage ? <img src={IconImage} alt={`${choice}`} className='w-60 h-60 ' /> : null;
     };
 
   return (
@@ -125,32 +125,30 @@ const GameBoard = () => {
       )}
       {renderGameMode()}
 
-      {/* Winner Annoucement */}
-      {gameStarted && (
-        <div className='winner-announcement text-5xl font-bold text-blue-200 '>
-          {winner === 'draw' && (
-          <>
-            <p>It's a draw! You both chose:</p>  
-            {renderIcon(playerChoice)} 
-          </>
-          )}
-          {winner === 'player' && (
-          <>
-            <p>Good work! Peach wins!</p>  
-            {renderIcon(playerChoice)} 
-            {renderIcon(computerChoice)} 
-          </>
-          )}
-          {winner === 'computer' && (
-          <>
-            <p>Oh no! Bowser wins!</p>  
-            {renderIcon(playerChoice)} 
-            {renderIcon(computerChoice)} 
-          </>
-          )}
-        </div>
+{/* Winner Announcement */}
+{gameStarted && (
+  <div className='winner-announcement text-5xl font-bold text-blue-200 flex flex-col justify-center items-center'>
+    {/* Winner message container */}
+    <div className='winner-message-container my-4'>
+      {winner === 'draw' && <p>It's a draw! You both chose:</p>}
+      {winner === 'player' && <p>Good work! Peach wins!</p>}
+      {winner === 'computer' && <p>Oh no! Bowser wins!</p>}
+    </div>
+    
+    {/* Icons container */}
+    <div className='icons-container flex justify-center items-center space-x-20'>
+      {winner === 'draw' && renderIcon(playerChoice)}
+      {(winner === 'player' || winner === 'computer') && (
+        <>
+          {renderIcon(playerChoice)}
+          {renderIcon(computerChoice)}
+        </>
       )}
-    </main>
+    </div>
+  </div>
+)}
+</main>
+
   )
 }
 export default GameBoard;
