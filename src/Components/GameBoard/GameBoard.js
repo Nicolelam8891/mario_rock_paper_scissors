@@ -90,11 +90,17 @@ const GameBoard = () => {
         console.log(`Oh no! Bowser wins!`);
         setWinner('computer');
       } 
+
+      setTimeout(() => {
+      setPlayerChoice(null);
+      setComputerChoice(null);
+      setWinner('')
+      }, 2000)
     }
 
     const renderIcon = (choice) => {
       const IconImage = iconImages[choice];
-      return IconImage ? <img src={IconImage} alt={`${choice}`} className='w-60 h-60 ' /> : null;
+      return IconImage ? <img src={IconImage} alt={`${choice}`} className='w-40 h-40 space-x-60' /> : null;
     };
 
   return (
