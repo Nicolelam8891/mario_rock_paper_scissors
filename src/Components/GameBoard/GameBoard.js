@@ -31,8 +31,8 @@ const GameBoard = () => {
     }
 
     const renderGameMode = () => {
-      if (!gameStarted) {
-        return null; //when game hasn't started, don't render icons
+      if (!gameStarted || winner) {
+        return null; //do not render game mode icons
       }
       switch (gameMode) {
         case 'classic': 
