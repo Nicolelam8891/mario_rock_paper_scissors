@@ -1,6 +1,7 @@
 import './Header.css'
 
 const Header = () => {
+
   return (
     <main className='header'>
         <h1 className='text-5xl font-bold text-center text-blue-200 font-mono p-2 title-outline'>🍄 MUSHROOM KINGDOM SHOWDOWN 🍄</h1>
