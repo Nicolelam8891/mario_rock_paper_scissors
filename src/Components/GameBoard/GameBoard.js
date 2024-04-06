@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Icons from '../Icons/Icons';
-
+import bombIcon from '../../assets/bombIcon.png'
+import shellIcon from '../../assets/shellIcon.png'
+import starIcon from '../../assets/starIcon.png'
+import coinIcon from '../../assets/coinIcon.png'
+import daisyIcon from '../../assets/daisyIcon.png'
 
 const GameBoard = () => {
   const [gameMode, setGameMode] = useState(null);
@@ -12,8 +16,13 @@ const GameBoard = () => {
   const difficultChoice = ['bombIcon', 'shellIcon', 'starIcon', 'coinIcon', 'daisyFireballIcon'];
   const classicChoice = ['bombIcon', 'shellIcon', 'starIcon']
 
-  //want playerChoice state & computerChoice state to STAY
-  //hide other icons 
+  const iconImages = {
+    bombIcon: bombIcon,
+    shellIcon: shellIcon,
+    starIcon: starIcon,
+    coinIcon: coinIcon,
+    daisyFireballIcon: daisyIcon, 
+  };
 
     const startGame = (mode) => {
       console.log('Game mode selected', mode)
@@ -45,10 +54,13 @@ const GameBoard = () => {
       }
     }
 
-
     const determineWinner = (playerChoice) => {
       let computerChoice = computerResult(gameMode)
       console.log('computerChoice', computerChoice)
+
+      setPlayerChoice(playerChoice);
+      setComputerChoice(computerChoice);
+
       let rules = {}
       if (gameMode === 'classic') {
         rules = {
@@ -79,7 +91,11 @@ const GameBoard = () => {
         setWinner('computer');
       } 
     }
-  
+
+    const renderIcon = (choice) => {
+      const IconImage = iconImages[choice];
+      return IconImage ? <img src={IconImage} alt={`${choice}`} /> : null;
+    };
 
   return (
     <main className='flex justify-center items-center h-screen'>
@@ -112,9 +128,26 @@ const GameBoard = () => {
       {/* Winner Annoucement */}
       {gameStarted && (
         <div className='winner-announcement text-5xl font-bold text-blue-200 '>
-          {winner === 'draw' && <p>It's a draw!</p>}
-          {winner === 'player' && <p>Good work! Peach wins!</p>}
-          {winner === 'computer' && <p>Oh no! Bowser wins!</p>}
+          {winner === 'draw' && (
+          <>
+            <p>It's a draw! You both chose:</p>  
+            {renderIcon(playerChoice)} 
+          </>
+          )}
+          {winner === 'player' && (
+          <>
+            <p>Good work! Peach wins!</p>  
+            {renderIcon(playerChoice)} 
+            {renderIcon(computerChoice)} 
+          </>
+          )}
+          {winner === 'computer' && (
+          <>
+            <p>Oh no! Bowser wins!</p>  
+            {renderIcon(playerChoice)} 
+            {renderIcon(computerChoice)} 
+          </>
+          )}
         </div>
       )}
     </main>

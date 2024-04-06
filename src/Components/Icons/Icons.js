@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'; 
-import bombIcon from '../../assets/bomb.png'
-import shellIcon from '../../assets/shell.png'
-import starIcon from '../../assets/star.png'
-import coinIcon from '../../assets/coin.png'
-import daisyIcon from '../../assets/daisy.png'
+import bombIcon from '../../assets/bombIcon.png'
+import shellIcon from '../../assets/shellIcon.png'
+import starIcon from '../../assets/starIcon.png'
+import coinIcon from '../../assets/coinIcon.png'
+import daisyIcon from '../../assets/daisyIcon.png'
 
 
 const Icons = ( {mode, determineWinner} ) => {
   console.log('Icons mode prop', mode)
-  
+
   const handleIconClick = (iconName) => {
     console.log(`${iconName} icon clicked!`)
     determineWinner(iconName)
