@@ -5,6 +5,7 @@ import shellIcon from '../../assets/shellIcon.png'
 import starIcon from '../../assets/starIcon.png'
 import coinIcon from '../../assets/coinIcon.png'
 import daisyIcon from '../../assets/daisyIcon.png'
+import PlayerPeach from '../PlayerPeach/PlayerPeach';
 
 const GameBoard = () => {
   const [gameMode, setGameMode] = useState(null);
@@ -25,9 +26,15 @@ const GameBoard = () => {
   };
 
     const startGame = (mode) => {
-      console.log('Game mode selected', mode)
-      setGameMode(mode);
-      setGameStarted(true);
+      if (mode === null) {
+        setComputerChoice(null);
+        setPlayerChoice(null);
+        setWinner('');
+        setGameStarted(false)
+      } else {
+        setGameMode(mode);
+        setGameStarted(true);
+      }
     }
 
     const renderGameMode = () => {
@@ -106,7 +113,7 @@ const GameBoard = () => {
   return (
     <main className='flex justify-center items-center h-screen'>
       {!gameStarted && (
-      <div className='flex flex-col items-center justify-center p-4 h-full'>
+        <div className='flex flex-col items-center justify-center p-4 h-full'>
         <button onClick={() => startGame('classic')} className='bg-blue-100 p-10 border-2 classic bg-opacity-50'>
           <div className='text-left'>
             <p className='text-center font-bold'>Classic Mode:</p>
@@ -129,6 +136,7 @@ const GameBoard = () => {
         </button>
       </div>
       )}
+      <button className='text-5xl font-bold text-center text-blue-200 font-mono p-2 title-outline'onClick={() => startGame(null)}>New Game</button>
       {renderGameMode()}
 
 {/* Winner Announcement */}

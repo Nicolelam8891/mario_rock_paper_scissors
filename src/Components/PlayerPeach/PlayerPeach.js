@@ -1,6 +1,7 @@
 import './PlayerPeach.css'
 
-const PlayerPeach = () => {
+const PlayerPeach = ( {startGame} ) => {
+
   return (
     <main className='player-peach'>
       <h2 className='p-5 text-center font-bold player-title'>PEACH</h2>
