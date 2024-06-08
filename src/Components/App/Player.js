@@ -2,7 +2,7 @@ import PlayerBowser from '../PlayerBowser/PlayerBowser'
 import '../PlayerPeach/PlayerPeach.css'
 import '../PlayerBowser/PlayerBowser.css'
 
-
+//test
 const Player = ( {score, name} ) => {
   console.log('score', score)
   console.log('name', name)
