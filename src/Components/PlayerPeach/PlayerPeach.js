@@ -1,6 +1,7 @@
 import './PlayerPeach.css'
 
-const PlayerPeach = ( {startGame} ) => {
+const PlayerPeach = ( {startGame, playerScore} ) => {
+  console.log('playerScore', playerScore)
 
   return (
     <main className='player-peach'>
@@ -8,7 +9,7 @@ const PlayerPeach = ( {startGame} ) => {
       <div className='p-1 border-2 font-bold border-blue-300 shadow-md inline-block'>
       <img src="/peach.png" style={{ boxShadow: 'rgb(100 199 237) 0px 0px 10px inset' }} className='w-40 h-40 p-2' alt="peach" />
       </div>
-      <p className='font-bold text-center score'>Score: </p>
+      <p className='font-bold text-center score'>Score: {playerScore} </p>
     </main>
   )
 }

@@ -4,7 +4,7 @@ const Header = () => {
 
   return (
     <main className='header'>
-        <h1 className='text-5xl font-bold text-center text-blue-200 font-mono p-2 title-outline'>🍄 MUSHROOM KINGDOM SHOWDOWN 🍄</h1>
+        <h1 className='text-5xl font-bold text-center text-blue-200 font-mono p-2 title-outline'> MUSHROOM KINGDOM SHOWDOWN </h1>
       <div className="flex justify-center p-1">
         <img src="/toad.png"
  className="w-40 h-auto mx-auto p-2" alt= "Toad family" />

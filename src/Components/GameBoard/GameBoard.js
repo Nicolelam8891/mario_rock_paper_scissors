@@ -7,7 +7,7 @@ import coinIcon from '../../assets/coinIcon.png'
 import daisyIcon from '../../assets/daisyIcon.png'
 import PlayerPeach from '../PlayerPeach/PlayerPeach';
 
-const GameBoard = () => {
+const GameBoard = ( { updateScores } ) => {
   const [gameMode, setGameMode] = useState(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [playerChoice, setPlayerChoice] = useState(null);
@@ -25,18 +25,6 @@ const GameBoard = () => {
     daisyFireballIcon: daisyIcon, 
   };
 
-    const startGame = (mode) => {
-      if (mode === null) {
-        setComputerChoice(null);
-        setPlayerChoice(null);
-        setWinner('');
-        setGameStarted(false)
-      } else {
-        setGameMode(mode);
-        setGameStarted(true);
-      }
-    }
-
     const renderGameMode = () => {
       if (!gameStarted || winner) {
         return null; //do not render game mode icons
@@ -50,6 +38,18 @@ const GameBoard = () => {
           return null;
       }
     };
+
+    const startGame = (mode) => {
+      if (mode === null) {
+        setComputerChoice(null);
+        setPlayerChoice(null);
+        setWinner('');
+        setGameStarted(false)
+      } else {
+        setGameMode(mode);
+        setGameStarted(true);
+      }
+    }
 
     const computerResult = (mode) => {
       if (mode === 'classic') {
@@ -92,10 +92,12 @@ const GameBoard = () => {
         //rules[playerChoice] (if it is coin) = ['shell', 'star']
         console.log(`Good work! Peach wins!`);
         setWinner('player')
+        updateScores("player")
       } else {
         //CPU wins
         console.log(`Oh no! Bowser wins!`);
-        setWinner('computer');
+        setWinner('computer')
+        updateScores("computer")
       } 
 
       setTimeout(() => {
